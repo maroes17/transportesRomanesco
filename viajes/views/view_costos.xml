@@ -1,0 +1,102 @@
+<odoo>
+  <data>
+
+    <!-- VISTA DE FORMULARIO -->
+    <record id="view_viajes_gastos_form" model="ir.ui.view">
+      <field name="name">view.viajes.gastos.form</field>
+      <field name="model">viajes.gastos</field>
+      <field name="arch" type="xml">
+        <form string="Gastos">
+          <sheet>
+            <group name="group_top">
+              <group name="group_left">
+                <field name="id_viaje" />
+                <field name="moneda" />
+                <field name="id_direccion_salida" />
+              </group>
+              <group name="group_rigth">
+                <field name="chofer" />
+                <field name="fecha" />
+                <field name="id_direccion_llegada" />
+              </group>
+            </group>
+            <notebook>
+              <page string="Gastos de Viaje">
+
+              </page>
+              <page string="Notas">
+                <group>
+                  <field name="notas_viajes" />
+                </group>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- VISTA ARBOL -->
+    <record id="view_viajes_gastos_tree" model="ir.ui.view">
+      <field name="name">view.viajes.gastos.tree</field>
+      <field name="model">viajes.gastos</field>
+      <field name="arch" type="xml">
+        <tree string="Gastos">
+          <field name="id_viaje" />
+          <field name="moneda" />
+          <field name="chofer" />
+          <field name="fecha" />
+        </tree>
+      </field>
+    </record>
+
+
+    <record id="action_viajes_gastos_view" model="ir.actions.act_window">
+      <field name="name">Gastos</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">viajes.gastos</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+                Gastos de cada viaje
+        </p>
+        <p>
+              Click 'Nuevo' para añadir nuevos gastos
+        </p>
+      </field>
+    </record>
+
+    <menuitem id="menu_viajes_root" name="Viajes" sequence="10" />
+
+    <menuitem id="menu_viajes_gastos_categ" name="Gastos" parent="menu_viajes_root" sequence="0" action="action_viajes_gastos_view" />
+
+    <!-- Top menu item -->
+    <!--
+    <menuitem name="viajes" id="viajes.menu_root"/>
+    -->
+    <!-- menu categories -->
+    <!--
+    <menuitem name="Menu 1" id="viajes.menu_1" parent="viajes.menu_root"/>
+    <menuitem name="Menu 2" id="viajes.menu_2" parent="viajes.menu_root"/>
+    -->
+    <!-- actions -->
+    <!--
+    <menuitem name="List" id="viajes.menu_1_list" parent="viajes.menu_1" action="viajes.action_window"/>
+    <menuitem name="Server to list" id="viajes" parent="viajes.menu_2" action="viajes.action_server"/>
+    -->
+
+    <!-- 
+
+      <notebook>
+              <page string="Gastos de Viaje">
+
+              </page>
+              <page string="Notas">
+                <group>
+                  <field string="notas_viajes" />
+                </group>
+              </page>
+      </notebook>
+    
+    "-->
+  </data>
+</odoo>

@@ -1,0 +1,93 @@
+<odoo>
+  <data>
+
+     <!-- VISTA DE FORMULARIO -->
+    <record id="view_viajes_hojaderuta_form" model="ir.ui.view">
+      <field name="name">view.viajes.hojaderuta.form</field>
+      <field name="model">viajes.hojaderuta</field>
+      <field name="arch" type="xml">
+        <form string="Rutas">
+          <sheet>
+            <div class="oe_button_box" name="button_box">
+            <button name="toggle_state" type="object" class="oe_stat_button"
+                  string="Cambiar realizada" icon="fa-play-circle" />
+            </div>
+            <group name="group_top">
+              <group name="group_left">
+                <field name="id_viaje" />
+                <field name="chofer" />
+                <field name="direccion_salida" />
+                <field name="carga" />
+                <field name="cliente" />
+                <field name="tipo_carga" />
+              </group>
+              <group name="group_right">
+                <field name="fecha" />
+                <field name="direccion_llegada" />
+                <field name="descarga" />
+                <field name="estado" />
+                <field name="descripcion" />
+                <field name="image" widget="image" />
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+     <!-- VISTA ARBOL -->
+    <record id="view_viajes_hojaderuta_tree" model="ir.ui.view">
+      <field name="name">view.viajes.hojaderuta.tree</field>
+      <field name="model">viajes.hojaderuta</field>
+      <field name="arch" type="xml">
+        <tree string="Visit">
+          <field name="id_viaje" />
+          <field name="cliente" />
+          <field name="chofer" />
+          <field name="direccion_llegada" />
+          <field name="direccion_salida" />
+          <field name="tipo_carga" />
+          <field name="fecha" />
+        </tree>
+      </field>
+    </record>
+   
+
+    <record id="action_viajes_hojaderuta_view" model="ir.actions.act_window">
+        <field name="name">Rutas</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">viajes.hojaderuta</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+                Hojas de Rutas
+          </p>
+          <p>
+              Click 'Nuevo' para añadir nuevos elementos
+          </p>
+        </field>
+      </record>
+
+    <menuitem id="menu_viajes_root" name="Viajes" sequence="10" />
+
+    <menuitem id="menu_viajes_hojaderuta_categ" name="Rutas" parent="menu_viajes_root" sequence="0" action="action_viajes_hojaderuta_view" />
+
+    <!-- Top menu item -->
+    <!--
+    <menuitem name="viajes" id="viajes.menu_root"/>
+    -->
+    <!-- menu categories -->
+    <!--
+    <menuitem name="Menu 1" id="viajes.menu_1" parent="viajes.menu_root"/>
+    <menuitem name="Menu 2" id="viajes.menu_2" parent="viajes.menu_root"/>
+    -->
+    <!-- actions -->
+    <!--
+    <menuitem name="List" id="viajes.menu_1_list" parent="viajes.menu_1"
+              action="viajes.action_window"/>
+    <menuitem name="Server to list" id="viajes" parent="viajes.menu_2"
+              action="viajes.action_server"/>
+    -->
+  </data>
+</odoo>
