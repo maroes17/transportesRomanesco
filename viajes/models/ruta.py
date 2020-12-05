@@ -8,7 +8,7 @@ class HojaDeRuta(models.Model):
     _rec_name = 'id_viaje'
 
     descripcion = fields.Char(string='Descripción')
-    id_viaje = fields.Integer(string='N° de viaje')
+    id_viaje = fields.Char(string='N° de viaje', required=True, copy=False, readonly=True, index=True, default=lambda self: :_('Nuevo'))
     cliente = fields.Char(string='Cliente')
     direccion_salida = fields.Char(string='Dirección salida')
     direccion_llegada = fields.Char(string='Direccion llegada')

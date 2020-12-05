@@ -27,6 +27,7 @@
         'views/view_ruta.xml',
         'views/view_costos.xml',
         'views/templates.xml',
+        'data/sequence.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
