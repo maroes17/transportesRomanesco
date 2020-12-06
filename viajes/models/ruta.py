@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields, api
+from odoo import models, fields, api, _
 
 
 class HojaDeRuta(models.Model):
@@ -8,7 +8,7 @@ class HojaDeRuta(models.Model):
     _rec_name = 'id_viaje'
 
     descripcion = fields.Char(string='Descripción')
-    id_viaje = fields.Char(string='N° de viaje', required=True, copy=False, readonly=True, index=True, default=lambda self: :_('Nuevo'))
+    id_viaje = fields.Char(string='N° de viaje', required=True, copy=False, readonly=True, index=True, default=lambda self: _('New'))
     cliente = fields.Char(string='Cliente')
     direccion_salida = fields.Char(string='Dirección salida')
     direccion_llegada = fields.Char(string='Direccion llegada')
@@ -21,8 +21,16 @@ class HojaDeRuta(models.Model):
     estado = fields.Boolean(string='Realizada', readonly=True)
     image = fields.Binary(string='Image')
 
+
     def toggle_state(self):
         self.estado = not self.estado
+
+    @api.model
+    def create(self, vals):
+        if vals.get('id_viaje', _('New')) == _('New'):
+            vals['id_viaje'] = self.env['ir.sequence'].next_by_code('viajes.hojaderuta.sequence') or _('New')
+        result = super(HojaDeRuta, self).create(vals)
+        return result 
 
 # class viajes(models.Model):
 #     _name = 'viajes.viajes'

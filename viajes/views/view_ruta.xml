@@ -8,6 +8,11 @@
       <field name="arch" type="xml">
         <form string="Rutas">
           <sheet>
+            <div class="oe_tittle">
+              <h1>
+                <field name="id_viaje" readonly="1"/>
+              </h1>
+            </div>
             <div class="oe_button_box" name="button_box">
             <button name="toggle_state" type="object" class="oe_stat_button"
                   string="Cambiar realizada" icon="fa-play-circle" />
@@ -40,7 +45,7 @@
       <field name="name">view.viajes.hojaderuta.tree</field>
       <field name="model">viajes.hojaderuta</field>
       <field name="arch" type="xml">
-        <tree string="Visit">
+        <tree string="Rutas">
           <field name="id_viaje" />
           <field name="cliente" />
           <field name="chofer" />
