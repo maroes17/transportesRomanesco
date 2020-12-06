@@ -56,6 +56,23 @@
         </tree>
       </field>
     </record>
+
+     <!-- BARRA DE BUSQUEDA - FILTROS -->
+    <record id="viajes_hojaderuta_search" model="ir.ui.view">
+      <field name="name">viajes.hojaderuta.search</field>
+      <field name="model">viajes.hojaderuta</field>
+      <field name="arch" type="xml">
+        <search string="Buscar rutas">
+          <field name="id_viaje" filter_domain="['|',('cliente', 'ilike', self), ('id_viaje', 'ilike', self)]"/>
+          <field name="cliente" />
+          <field name="id_viaje" />
+          <separator />
+          <filter string="Remolque" name="R" domain="[('tipo_carga', '=', 'R')]"/>
+          <filter string="Semirremolque" name="SR" domain="[('tipo_carga', '=', 'SR')]"/>
+          <filter string="Sin remolque" name="S" domain="[('tipo_carga', '=', 'S')]"/>
+        </search>
+      </field>
+    </record>
    
 
     <record id="action_viajes_hojaderuta_view" model="ir.actions.act_window">
