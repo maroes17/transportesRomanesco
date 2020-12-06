@@ -32,6 +32,19 @@ class HojaDeRuta(models.Model):
         result = super(HojaDeRuta, self).create(vals)
         return result 
 
+    # Función de botón Gastos
+    @api.multi
+    def open_ruta_costos(self):
+        return {
+            'name': _('Gastos'),
+            'domain': [('id_viaje', '=', self.id)],
+            'view_type': 'form', 
+            'res_model': 'viajes.gastos',
+            'view_id': False,
+            'view_mode': 'tree,form',
+            'type': 'ir.actions.act_window',        
+        }
+
 # class viajes(models.Model):
 #     _name = 'viajes.viajes'
 

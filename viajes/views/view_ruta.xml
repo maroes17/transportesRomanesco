@@ -14,8 +14,10 @@
               </h1>
             </div>
             <div class="oe_button_box" name="button_box">
-            <button name="toggle_state" type="object" class="oe_stat_button"
-                  string="Cambiar realizada" icon="fa-play-circle" />
+              <button name="toggle_state" type="object" class="oe_stat_button"
+                    string="Cambiar realizada" icon="fa-play-circle" />
+              <button name="open_ruta_costos" string="Gastos Chofer" type="object" 
+                  class="oe_stat_button" icon="fa-pencil-square-o" />
             </div>
             <group name="group_top">
               <group name="group_left">
