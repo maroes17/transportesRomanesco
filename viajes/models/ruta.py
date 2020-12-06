@@ -21,10 +21,11 @@ class HojaDeRuta(models.Model):
     estado = fields.Boolean(string='Realizada', readonly=True)
     image = fields.Binary(string='Image')
 
-
+    # Función del botón estado
     def toggle_state(self):
         self.estado = not self.estado
 
+    # Función de la secuencia, ingreso de viajes
     @api.model
     def create(self, vals):
         if vals.get('id_viaje', _('New')) == _('New'):
@@ -45,14 +46,30 @@ class HojaDeRuta(models.Model):
             'type': 'ir.actions.act_window',        
         }
 
-# class viajes(models.Model):
-#     _name = 'viajes.viajes'
 
-#     name = fields.Char()
-#     value = fields.Integer()
-#     value2 = fields.Float(compute="_value_pc", store=True)
-#     description = fields.Text()
-#
-#     @api.depends('value')
-#     def _value_pc(self):
-#         self.value2 = float(self.value) / 100
+
+class Direccion(models.Model):
+     _name = 'viajes.direccion'
+     _rec_name = 'nombre'
+     nombre = fields.Char(string='Nombre', required=True)
+
+class LugarDeCarga(models.Model):
+     _name = 'viajes.lugar_carga'
+     _rec_name = 'nombre'
+     nombre = fields.Char(string='Nombre', required=True)
+
+
+class Trayectos(models.Model):
+    _name = 'viajes.trayecto'
+    _rec_name = 'nombre'
+    nombre = fields.Char(string='Nombre del trayecto')
+    direccion_salida = fields.Many2one('viajes.direccion', string='Dirección salida')
+    direccion_llegada = fields.Many2one('viajes.direccion', string='Direccion llegada')
+    carga = fields.Many2one('viajes.lugar_carga', string='Punto de carga')
+    descarga = fields.Many2one('viajes.lugar_carga', string='Punto de descarga')
+    distancia = fields.Integer(string='Distancia KM')
+
+
+
+
+    

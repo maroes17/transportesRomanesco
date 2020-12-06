@@ -2,39 +2,27 @@
   <data>
 
      <!-- VISTA DE FORMULARIO -->
-    <record id="view_viajes_hojaderuta_form" model="ir.ui.view">
-      <field name="name">view.viajes.hojaderuta.form</field>
-      <field name="model">viajes.hojaderuta</field>
+    <record id="view_viajes_trayecto_form" model="ir.ui.view">
+      <field name="name">view.viajes.trayecto.form</field>
+      <field name="model">viajes.trayecto</field>
       <field name="arch" type="xml">
-        <form string="Rutas">
+        <form string="Trayectos">
           <sheet>
             <div class="oe_tittle">
               <h1>
-                <field name="id_viaje" readonly="1"/>
+                <p>Trayectos</p>
               </h1>
-            </div>
-            <div class="oe_button_box" name="button_box">
-              <button name="toggle_state" type="object" class="oe_stat_button"
-                    string="Cambiar realizada" icon="fa-play-circle" />
-              <button name="open_ruta_costos" string="Gastos Chofer" type="object" 
-                  class="oe_stat_button" icon="fa-pencil-square-o" />
             </div>
             <group name="group_top">
               <group name="group_left">
-                <field name="id_viaje" />
-                <field name="chofer" />
+                <field name="nombre" />
                 <field name="direccion_salida" />
-                <field name="carga" />
-                <field name="cliente" />
-                <field name="tipo_carga" />
+                <field name="direccion_llegada" />
               </group>
               <group name="group_right">
-                <field name="fecha" />
-                <field name="direccion_llegada" />
+                <field name="distancia" />
+                <field name="carga" />
                 <field name="descarga" />
-                <field name="estado" />
-                <field name="descripcion" />
-                <field name="image" widget="image" />
               </group>
             </group>
           </sheet>
@@ -43,23 +31,26 @@
     </record>
 
      <!-- VISTA ARBOL -->
-    <record id="view_viajes_hojaderuta_tree" model="ir.ui.view">
-      <field name="name">view.viajes.hojaderuta.tree</field>
-      <field name="model">viajes.hojaderuta</field>
+    <record id="view_viajes_trayecto_tree" model="ir.ui.view">
+      <field name="name">view.viajes.trayecto.tree</field>
+      <field name="model">viajes.trayecto</field>
       <field name="arch" type="xml">
-        <tree string="Rutas">
-          <field name="id_viaje" />
-          <field name="cliente" />
-          <field name="chofer" />
-          <field name="direccion_llegada" />
-          <field name="direccion_salida" />
-          <field name="tipo_carga" />
-          <field name="fecha" />
+        <tree string="Trayectos">
+            <field name="nombre" />
+            <field name="distancia" />
+            <field name="carga" />
+            <field name="descarga" />
+            
+<!--             <label for="Ruta del trayecto"/>
+            <div>
+                <field name="direccion_salida" class="oe_inline" />
+                <field name="direccion_llegada" class="oe_inline" />
+            </div> -->
         </tree>
       </field>
     </record>
 
-     <!-- BARRA DE BUSQUEDA - FILTROS -->
+<!--     BARRA DE BUSQUEDA - FILTROS 
     <record id="viajes_hojaderuta_search" model="ir.ui.view">
       <field name="name">viajes.hojaderuta.search</field>
       <field name="model">viajes.hojaderuta</field>
@@ -74,21 +65,21 @@
           <filter string="Sin remolque" name="S" domain="[('tipo_carga', '=', 'S')]"/>
         </search>
       </field>
-    </record>
+    </record> -->
    
 
-    <record id="action_viajes_hojaderuta_view" model="ir.actions.act_window">
-        <field name="name">Rutas</field>
+    <record id="action_viajes_trayecto_view" model="ir.actions.act_window">
+        <field name="name">Trayectos</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">viajes.hojaderuta</field>
+        <field name="res_model">viajes.trayecto</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
         <field name="help" type="html">
           <p class="o_view_nocontent_smiling_face">
-                Hojas de Rutas
+                Trayectos y distancia
           </p>
           <p>
-              Click 'Nuevo' para añadir nuevos elementos
+              Click 'Nuevo' para añadir nuevos trayectos
           </p>
         </field>
       </record>
@@ -96,9 +87,9 @@
 
     <menuitem id="menu_viajes_root" name="Viajes" sequence="10" />
 
-    <menuitem id="menu_viajes_hojaderuta_categ" name="Rutas" parent="menu_viajes_root" sequence="0"  />
+    <menuitem id="menu_viajes_hojaderuta_categ" name="Rutas" parent="menu_viajes_root" sequence="0" />
 
-    <menuitem id="menu_viajes_hojaderuta" name="Hojas de ruta" parent="menu_viajes_hojaderuta_categ" sequence="0" action="action_viajes_hojaderuta_view" />
+    <menuitem id="menu_viajes_trayecto" name="Trayectos" parent="menu_viajes_hojaderuta_categ" sequence="0" action="action_viajes_trayecto_view" />
 
     <!-- Top menu item -->
     <!--

@@ -26,6 +26,7 @@
         'security/ir.model.access.csv',
         'views/view_ruta.xml',
         'views/view_costos.xml',
+        'views/view_trayecto.xml',
         'views/templates.xml',
         'data/sequence.xml',
     ],
