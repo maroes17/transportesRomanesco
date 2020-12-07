@@ -3,7 +3,7 @@
     'name': "viajes",
 
     'summary': """
-        Digitar los viajes y servicio asociado """,
+        Registrar viajes y gastos asociados a estos. """,
 
     'description': """
         El encargado será capaz de anotar los viajes del servicio prestado junto con los gastos y costos necesarios.
