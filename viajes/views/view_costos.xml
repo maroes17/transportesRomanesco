@@ -8,10 +8,15 @@
       <field name="arch" type="xml">
         <form string="Gastos">
           <sheet>
+            <div class="oe_tittle">
+              <h1>
+                <p><field name="id_viaje" readonly="1"/> - Gastos</p>
+              </h1>
+            </div>
             <group name="group_top">
               <group name="group_left">
                 <field name="id_viaje" />
-                <field name="moneda" />
+                <field name="moneda" />             
               </group>
               <group name="group_rigth">
                 <field name="chofer" />
@@ -21,7 +26,29 @@
             </group>
             <notebook>
               <page string="Gastos de Viaje">
-
+                <group>
+                  <group name="group_left">
+                    <separator string="Gastos del viaje" />
+                    <field name="viatico"/>
+                    <field name="reembolso"/>
+                    <field name="prestamos"/>
+                    <field name="combustible_efectivo" />
+                    <field name="otros"/>
+                    <hr />
+                    <field name="subtotal" />
+                    <field name="impuestos" />
+                    <field name="total" />
+                  </group>
+                  <group name="group_right">
+                    <separator string="Costos de combustible" />
+                    <field name="combustible_costo"/>
+                    <field name="combustible_litros"/>
+                    <hr />
+                    <field name="combustible_subtotal"/>
+                    <field name="combustible_impuestos"/>
+                    <field name="combustible_total"/>
+                  </group>
+                </group>
               </page>
               <page string="Notas">
                 <group>
