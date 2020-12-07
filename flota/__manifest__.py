@@ -7,7 +7,7 @@
 
     'description': """
         El encargado tendrá a disposición diversas funcionalidades relacionadas con la administración
-        de la flota de camiones que tiene Transportes Romanesco
+        de la flota de camiones que tiene Transportes Romanesco, hola hola, cambio
     """,
 
     'author': "Christian Vergara Retamal",
