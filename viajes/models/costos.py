@@ -10,6 +10,6 @@ class Costos(models.Model):
                              ('USD', 'Dolar')], string='Moneda', required=True)
     chofer = fields.Many2one(sitring='Chofer', comodel_name='res.partner')
     fecha = fields.Datetime('Fecha', related='id_viaje.fecha')
+    ruta_id = fields.Many2one('viajes.trayecto', string='Ruta', required=True)
     notas_viajes = fields.Text(string='Notas')
-    id_direccion_salida = fields.Char('Dirección salida', related='id_viaje.direccion_salida')
-    id_direccion_llegada = fields.Char('Direccion llegada', related='id_viaje.direccion_llegada')
+    

@@ -12,12 +12,11 @@
               <group name="group_left">
                 <field name="id_viaje" />
                 <field name="moneda" />
-                <field name="id_direccion_salida" />
               </group>
               <group name="group_rigth">
                 <field name="chofer" />
                 <field name="fecha" />
-                <field name="id_direccion_llegada" />
+                <field name="ruta_id" />
               </group>
             </group>
             <notebook>
@@ -44,6 +43,8 @@
           <field name="id_viaje" />
           <field name="moneda" />
           <field name="chofer" />
+<!--           <field name="ruta" /> -->
+          <field name="ruta_id" />
           <field name="fecha" />
         </tree>
       </field>

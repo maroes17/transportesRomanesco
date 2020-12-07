@@ -23,15 +23,12 @@
               <group name="group_left">
                 <field name="id_viaje" />
                 <field name="chofer" />
-                <field name="direccion_salida" />
-                <field name="carga" />
                 <field name="cliente" />
                 <field name="tipo_carga" />
+                <field name="ruta" />
               </group>
               <group name="group_right">
                 <field name="fecha" />
-                <field name="direccion_llegada" />
-                <field name="descarga" />
                 <field name="estado" />
                 <field name="descripcion" />
                 <field name="image" widget="image" />
@@ -51,9 +48,7 @@
           <field name="id_viaje" />
           <field name="cliente" />
           <field name="chofer" />
-          <field name="direccion_llegada" />
-          <field name="direccion_salida" />
-          <field name="tipo_carga" />
+          <field name="ruta" />
           <field name="fecha" />
         </tree>
       </field>
