@@ -1,0 +1,64 @@
+<odoo >
+    <data>
+        <!-- Formulario Chofer -->
+        <record id="flota.chofer_view" model="ir.ui.view">
+            <field name="name">Chofer</field>
+            <field name="model">flota.chofer</field>
+            <field name="arch" type="xml">
+                <form name="Chofer">
+                    <sheet>
+                        <group>
+                            <field name="nombre"/>
+                            <field name="telefono"/>
+                        </group>
+                        <group>
+                            <field name="tipo_documento_id"/>
+                            <field name="num_documento"/>
+                            <field name="ciudad_id"/>
+                            <group/>
+                        </sheet>
+                    </form>
+                    <field/>
+                    <record/>
+
+        <!-- Listados de Choferes-->
+        <record model="ir.ui.view" id="flota.conductores_list">
+            <field name="name">Conductores</field>
+            <field name="model">flota.chofer</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="nombre"/>
+                    <field name="telefono"/>
+                    <field name="tipo_documneto_id"/>
+                    <field name="num_documento"/>
+                    <field name="ciudad_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="flota.chofer_action_window">
+            <field name="name">Conductores</field>
+            <field name="res_model">flota.chofer</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.server" id="flota.chofer_action_server">
+            <field name="name">chofer server</field>
+            <field name="model_id" ref="model_flota_chofer"/>
+            <field name="state">code</field>
+            <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+            </field>
+        </record>
+
+
+        <menuitem name="Flota" id="flota.menu_root"/>
+
+        <menuitem name="Chofer" id="flota.menu_chofer" parent="flota.menu_root" action="flota.chofer_action_window"/>
+
+    </data>
+</odoo>
