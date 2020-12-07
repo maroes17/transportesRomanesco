@@ -1,3 +1,6 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_viajes_hojaderuta,acces.viajes.hojaderuta,model_viajes_hojaderuta,,1,1,1,1
 access_viajes_gastos,acces.viajes.gastos,model_viajes_gastos,,1,1,1,1
+access_viajes_direccion,acces.viajes.direccion,model_viajes_direccion,,1,1,1,1
+access_viajes_lugar_carga,acces.viajes.lugar_carga,model_viajes_lugar_carga,,1,1,1,1
+access_viajes_trayecto,acces.viajes.trayecto,model_viajes_trayecto,,1,1,1,1

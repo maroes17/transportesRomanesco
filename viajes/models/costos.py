@@ -3,7 +3,7 @@ from odoo import models, fields, api
 
 class Costos(models.Model):
     _name = 'viajes.gastos'
-    _rec_name = ''
+    _rec_name = 'id_viaje'
 
     moneda = fields.Selection([('EU', 'Euro'), ('CLP', 'Peso Chileno'),
                              ('USD', 'Dolar')], string='Moneda', required=True)
