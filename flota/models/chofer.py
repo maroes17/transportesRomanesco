@@ -19,7 +19,7 @@ class TipoDocumento(models.Model):
 class ciudadChofer(models.Model):
     _name = 'flota.ciudad_chofer'
 
-    nombre = fields.Char(string='nombre', required=True)
+    nombre = fields.Char(string='Nombre', required=True)
     chofer_ids = fields.One2many(
         'flota.chofer',
         'ciudad_id',
@@ -36,9 +36,10 @@ class chofer(models.Model):
     _name = 'flota.chofer'
 
     
-    nombre = fields.Char(string='nombre', required=True)
-    tipo_documento_id = fields.Many2one('flota.tipo_documento',string="Tipo de Documento")
-    num_documento = fields.Char(string='num_documento', required=True)
+    nombre = fields.Char(string='Nombre', required=True)
+    telefono = fields.Char(string='Teléfono')
     
+    tipo_documento_id = fields.Many2one('flota.tipo_documento',string="Tipo de Documento")
+    num_documento = fields.Char(string='Número de Documento', required=True)
     ciudad_id = fields.Many2one('flota.ciudad_chofer',string='Ciudad')
-    telefono = fields.Integer(string='telefono')
+    

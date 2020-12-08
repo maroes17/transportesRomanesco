@@ -26,7 +26,7 @@
     'data': [
         'security/ir.model.access.csv',
         'views/view_chofer.xml',
-        #'views/view_camion.xml',
+        'views/view_camion.xml',
         #'views/view_gastoCamion.xml',
     ],
     # only loaded in demonstration mode

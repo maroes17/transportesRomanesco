@@ -7,7 +7,7 @@
             <field name="arch" type="xml">
                 <form name="Chofer">
                     <sheet>
-                        <group>
+                        <group col="4">
                             <field name="nombre"/>
                             <field name="telefono"/>
                         </group>
@@ -15,11 +15,11 @@
                             <field name="tipo_documento_id"/>
                             <field name="num_documento"/>
                             <field name="ciudad_id"/>
-                            <group/>
-                        </sheet>
-                    </form>
-                    <field/>
-                    <record/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
         <!-- Listados de Choferes-->
         <record model="ir.ui.view" id="flota.conductores_list">
@@ -29,7 +29,7 @@
                 <tree>
                     <field name="nombre"/>
                     <field name="telefono"/>
-                    <field name="tipo_documneto_id"/>
+                    <field name="tipo_documento_id"/>
                     <field name="num_documento"/>
                     <field name="ciudad_id"/>
                 </tree>
@@ -58,7 +58,7 @@
 
         <menuitem name="Flota" id="flota.menu_root"/>
 
-        <menuitem name="Chofer" id="flota.menu_chofer" parent="flota.menu_root" action="flota.chofer_action_window"/>
+        <menuitem name="Conductores" id="flota.menu_chofer" parent="flota.menu_root" action="flota.chofer_action_window"/>
 
     </data>
 </odoo>

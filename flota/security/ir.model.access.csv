@@ -1,2 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_flota_chofer,flota.chofer,model_flota_chofer,,1,1,1,1
+access_flota_chofer,acces.flota.chofer,model_flota_chofer,,1,1,1,1
+access_flota_camion,acces.flota.camion,model_flota_camion,,1,1,1,1
