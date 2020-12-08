@@ -38,4 +38,17 @@ class Costos(models.Model):
     combustible_total = fields.Float(string='Total', compute = compute_field)
 
 
+class ReporteGastos(models.AbstractModel):
+    _name = 'report.viajes.report_gastos_card'
+
+    @api.model
+    def _get_report_values(self, docids, data=None):
+        report_obj = self.env['ir.actions.report']
+        report = report_obj._get_report_from_name('viajes.report_gastos_card')
+        return {
+            'doc_ids': docids,
+            'doc_model': self.env['viajes.gastos'],
+            'docs': self.env['viajes.gastos'].browse(docids)
+        }
+
 

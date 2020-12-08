@@ -1,0 +1,13 @@
+<odoo>
+    <data>
+        <report
+            string="Informe de Gastos"
+            id="viajes_gastos_report"
+            model="viajes.gastos"
+            report_type="qweb-pdf"
+            name="viajes.report_gastos_card"
+            file="viajes.report_gastos_card"
+            attachment_use="True"
+        />
+    </data>
+</odoo>

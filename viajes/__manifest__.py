@@ -3,10 +3,11 @@
     'name': "viajes",
 
     'summary': """
-        Registrar viajes y gastos asociados a estos. """,
+        Registrar viajes, rutas y gastos de cada viaje. """,
 
     'description': """
-        El encargado será capaz de anotar los viajes del servicio prestado junto con los gastos y costos necesarios.
+        El encargado será capaz de registrar adecuadamente los viajes del servicio prestado 
+        junto con los gastos y costos necesarios, como también las rutas que realizan los vehículos.
     """,
 
     'author': "Matías Rojas",
@@ -29,6 +30,7 @@
         'views/view_trayecto.xml',
         'views/templates.xml',
         'data/sequence.xml',
+        'reports/gastos.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
