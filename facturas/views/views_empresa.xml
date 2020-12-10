@@ -1,0 +1,57 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+   
+    <record model="ir.ui.view" id="facturas_list1">
+      <field name="name">facturaPrueba list2</field>
+      <field name="model">facturas.empresa</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="namep"/>
+          <field name="rutp"/>
+          <field name="direccionp"/>
+          <field name="telefonop"/>
+        </tree>
+      </field>
+    </record>
+
+
+       <!-- explicit list view definition -->
+   
+    <record model="ir.ui.view" id="facturas_form1">
+      <field name="name">EmpresaPrueba form</field>
+      <field name="model">facturas.empresa</field>
+      <field name="arch" type="xml">
+        <form>
+         <group> 
+          <field name="namep"/>
+          <field name="rutp"/>
+          <field name="direccionp"/>
+          <field name="telefonop"/>
+          </group>
+        </form>
+      </field>
+    </record>
+   
+
+    <!-- actions opening views on models -->
+    
+    <record model="ir.actions.act_window" id="facturas.action_window2">
+      <field name="name">Datos de la empresa</field>
+      <field name="res_model">facturas.empresa</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    
+
+    <!-- Top menu item -->
+    
+    <menuitem name="Facturas" id="facturas.menu_root"/>
+    
+    <!-- menu categories -->
+    
+    <menuitem name="Datos de Empresa" id="facturas.menu_2" parent="facturas.menu_root" action="facturas.action_window2"/>
+    
+    
+    
+  </data>
+</odoo>

@@ -18,8 +18,8 @@
 
        <!-- explicit list view definition -->
    
-    <record model="ir.ui.view" id="facturas_form">
-      <field name="name">facturaPrueba form</field>
+    <record model="ir.ui.view" id="factura_form">
+      <field name="name">clientePrueba form</field>
       <field name="model">facturas.cliente</field>
       <field name="arch" type="xml">
         <form>
@@ -37,7 +37,7 @@
     <!-- actions opening views on models -->
     
     <record model="ir.actions.act_window" id="facturas.action_window1">
-      <field name="name">facturas.cliente window</field>
+      <field name="name">Lista de Clientes</field>
       <field name="res_model">facturas.cliente</field>
       <field name="view_mode">tree,form</field>
     </record>
@@ -45,7 +45,7 @@
 
     <!-- Top menu item -->
     
-    <menuitem name="Cliente" id="facturas.menu_root"/>
+    <menuitem name="Facturas" id="facturas.menu_root"/>
     
     <!-- menu categories -->
     
