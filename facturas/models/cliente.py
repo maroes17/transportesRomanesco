@@ -5,7 +5,7 @@ from odoo import models, fields, api
 
 class Cliente(models.Model):
      _name = 'facturas.cliente'
-     _description = 'Modelo de cliente'
+     _description = 'Modelo de clientesssss'
      _rec_name= 'namec'
     #datos cliente
      namec = fields.Char(string="Nombre Cliente",required=True)

@@ -11,9 +11,9 @@ class FacturaPrueba(models.Model):
      fecha = fields.Date("Fecha de Facturacion")
 
      ##FORANEAS
-     field_empresa = fields.Many2one('factura.empresa', string="Datos de empresa")
+     field_empresa = fields.Many2one('facturas.empresa', string="Datos de empresa")
 
-     field_cliente = fields.Many2one('factura.cliente', string="Datos del cliente")
+     field_cliente = fields.Many2one('facturas.cliente', string="Datos del cliente")
 
      #METODO DE PAGO
      metodo =  fields.Char(string="Metodo de Pago")
