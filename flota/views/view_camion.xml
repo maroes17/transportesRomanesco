@@ -196,11 +196,12 @@
         </record>
 
 
+        
         <menuitem name="Flota" id="flota.menu_root"/>
 
         <menuitem name="Camiones" id="flota.menu_camion" parent="flota.menu_root" action="flota.camion_action_window"/>
         <menuitem name="Marcas" id="flota.menu_marca" parent="flota.menu_root" action="flota.marca_action_window"/>
-        <menuitem name="Modelos" id="flota.menu_modelo" parent="flota.menu_root" action="flota.modelo_action_window"/>
+        <!-- <menuitem name="Modelos" id="flota.menu_modelo" parent="flota.menu_root" action="flota.modelo_action_window"/> -->
 
     </data>
 </odoo>
