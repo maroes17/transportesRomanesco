@@ -1,0 +1,48 @@
+<odoo>
+  <data>
+    
+    <record model="ir.ui.view" id="facturas.factura_list">
+      <field name="name">facturaPrueba list</field>
+      <field name="model">facturas.factura</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="fecha"/>
+           <!-- valores -->
+          <field name="field_empresa"/>
+          <field name="field_cliente"/>
+          <field name="descriptionproduct"/>
+          <field name="metodo"/>
+          <field name="precio"/>
+          <field name="iva"/>
+          <field name="preciototal"/>
+
+        </tree>
+      </field>
+    </record>
+
+     <record model="ir.actions.act_window" id="facturas.factura_action_window">
+      <field name="name">Creación de facturas</field>
+      <field name="res_model">facturas.factura</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.server" id="facturas.factura_action_server">
+      <field name="name">facturas server</field>
+      <field name="model_id" ref="model_facturas_factura"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+
+    <menuitem name="Facturas" id="facturas.menu_root"/>
+    <menuitem name="Facturación" id="facturas.menu_facturas" parent="facturas.menu_root" action="facturas.factura_action_window"/>
+
+    
+
+  </data>
+</odoo>

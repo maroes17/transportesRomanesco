@@ -1,0 +1,115 @@
+<odoo>
+  <data>
+   <report id="report_facture"
+   string="Imprimir Factura"
+   model="facturas.factura"
+   report_type="qweb-pdf"
+   name="facturas.report_facturas_template"
+   />
+
+   <template id="report_facturas_template">
+    <t t-call="web.html_container">
+      <t t-foreach="docs" t-as="o">
+       <t t-call="web.external_layout">
+         <div class="header" style="background-color:#D6DBDF;">   
+         HEADER 
+         </div>
+
+         <div class="page">   
+
+          <h1>Factura</h1>
+           <h2>Fecha de emisión</h2>
+           <p><span t-field="o.fecha"/></p>
+
+           <!-- tabla datos empresa -->
+
+           <table class="table table-borderless table-sm">
+            <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Datos de la empresa</th>
+                  <th scope="col">Datos del cliente</th>
+                </tr>
+            </thead>
+            <tbody>
+             <tr>
+                <td><span t-field="o.field_empresa" /></td>
+                <td><span t-field="o.field_cliente" /></td>
+             </tr>
+            </tbody>
+           </table>
+
+           <!-- aaaaaaaaaaaaaaaaaaaaaaaaaa -->
+           <!-- tabla metodos de pago -->
+            <table class="table table-borderless table-sm">
+            <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Metodo de pago</th>
+                  <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+             <tr>
+                <tr>
+                  <td><span t-field="o.metodo" /></td>
+                </tr>
+             </tr>
+            </tbody>
+           </table>
+           <!-- eeeeeeeeeeeeeeeeeeeeeeeee -->
+           <!-- Tabla de descripción -->
+           <table class="table table-borderless table-sm">
+            <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Descripción del producto</th>
+                   <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+             <tr>
+                <tr>
+                  <td><span t-field="o.descriptionproduct" /></td>
+                </tr>
+             </tr>
+            </tbody>
+           </table>
+           <!-- iiiiiiiiiiiiiiiiiiii -->
+           <!-- TABLA PRECIOS -->
+          <table class="table table-borderless table-sm">
+            <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Total a cobrar</th>
+                   <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+
+             <tr class="border-top">
+               <th scope="row">Precio:</th>
+               <th><span t-field="o.precio" /></th>
+             </tr>
+
+             <tr class="border-top">
+               <th scope="row">IVA:</th>
+               <th><span t-field="o.iva" /></th>
+             </tr>
+
+             <tr class="border-top">
+               <th scope="row">Total a pagar:</th>
+               <th><span t-field="o.preciototal" /></th>
+             </tr>
+            </tbody>
+           </table>
+           <!-- OOOOOOOOOOOOO -->
+          
+         </div>
+
+         <div class="footer"> 
+         FOOTER
+         </div>
+        </t>
+      </t>
+    </t>
+   </template>
+
+  </data>
+</odoo>

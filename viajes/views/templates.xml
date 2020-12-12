@@ -1,22 +1,107 @@
 <odoo>
     <data>
-        <!-- <template id="listing"> -->
-        <!--   <ul> -->
-        <!--     <li t-foreach="objects" t-as="object"> -->
-        <!--       <a t-attf-href="#{ root }/objects/#{ object.id }"> -->
-        <!--         <t t-esc="object.display_name"/> -->
-        <!--       </a> -->
-        <!--     </li> -->
-        <!--   </ul> -->
-        <!-- </template> -->
-        <!-- <template id="object"> -->
-        <!--   <h1><t t-esc="object.display_name"/></h1> -->
-        <!--   <dl> -->
-        <!--     <t t-foreach="object._fields" t-as="field"> -->
-        <!--       <dt><t t-esc="field"/></dt> -->
-        <!--       <dd><t t-esc="object[field]"/></dd> -->
-        <!--     </t> -->
-        <!--   </dl> -->
-        <!-- </template> -->
+        <template id="report_gastos_card">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <h2>Gastos totales del viaje</h2>
+                             <p>Viaje:
+                                <span t-field="o.id_viaje"/>
+                            </p>
+                            <p>Chofer:
+                                <span t-field="o.chofer"/>
+                            </p>
+                            <p>Tipo de moneda:
+                                <span t-field="o.moneda"/>
+                            </p>
+                             <p>Ruta:
+                                <span t-field="o.ruta_id"/>
+                            </p>
+                            <p>Fecha:
+                                <span t-field="o.fecha" t-options='{"format": "dd/MM/yyyy"}' />
+                            </p>
+                            <hr/>
+                        </div>
+                        <div>
+                            <table class="table table-borderless table-sm">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">Gastos del viaje</th>
+                                        <th scope="col">Detalles</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td scope="row">Viatico</td>
+                                        <td><span t-field="o.viatico" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">Reembolso</td>
+                                        <td><span t-field="o.reembolso" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">Prestamos</td>
+                                        <td><span t-field="o.prestamos" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">Combustible en efectivo</td>
+                                        <td><span t-field="o.combustible_efectivo" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">Otros</td>
+                                        <td><span t-field="o.otros" /></td>
+                                    </tr>
+                                    <tr class="border-top">
+                                        <th scope="row">Subtotal</th>
+                                        <th><span t-field="o.subtotal" /></th>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Impuestos</th>
+                                        <th><span t-field="o.impuestos" /></th>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Total</th>
+                                        <th><span t-field="o.total" /></th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div>
+                            <table class="table table-borderless table-sm">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">Gastos del combustible</th>
+                                        <th scope="col">Detalles</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td scope="row">Costo del combustible</td>
+                                        <td><span t-field="o.combustible_costo" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row">Litros</td>
+                                        <td><span t-field="o.combustible_litros" /></td>
+                                    </tr>
+                                    <tr class="border-top">
+                                        <th scope="row">Subtotal</th>
+                                        <th><span t-field="o.combustible_subtotal" /></th>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Impuestos</th>
+                                        <th><span t-field="o.combustible_impuestos" /></th>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Total</th>
+                                        <th><span t-field="o.combustible_total" /></th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
     </data>
 </odoo>
