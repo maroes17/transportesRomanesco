@@ -15,7 +15,9 @@ class HojaDeRuta(models.Model):
                              ('S', 'Sin remolque')], string='Tipo', required=True)
     estado = fields.Boolean(string='Realizada', readonly=True)
     image = fields.Binary(string='Image')
-    id_cliente = fields.Many2one('facturas.factura', string="Cliente")
+    id_cliente = fields.Many2one('facturas.cliente', string="Cliente")
+    id_chofer = fields.Many2one('flota.chofer', string="Chofer")
+    id_camion = fields.Many2one('flota.camion', string="Camion")
     ruta = fields.Many2one('viajes.trayecto', string='Ruta', required=True)
 
     # Función del botón estado
