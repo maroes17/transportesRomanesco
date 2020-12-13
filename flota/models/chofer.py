@@ -37,6 +37,7 @@ class ciudadChofer(models.Model):
 class chofer(models.Model):
     _name = 'flota.chofer'
     _rec_name = 'nombre'
+    _description = 'Modelo de Chofer'
 
     
     nombre = fields.Char(string='Nombre', required=True)

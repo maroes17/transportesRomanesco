@@ -8,6 +8,7 @@
                 <form name="Gasto">
                     <sheet>
                         <group col="4">
+                            <field name="camion_id"/>
                             <field name="tipo_gasto_id"/>
                         </group>
                         <group>
@@ -26,6 +27,7 @@
             <field name="model">flota.gastocamion</field>
             <field name="arch" type="xml">
                 <tree>
+                    <field name="camion_id"/>
                     <field name="tipo_gasto_id"/>
                     <field name="moneda"/>
                     <field name="precio"/>
@@ -33,6 +35,7 @@
                 </tree>
             </field>
         </record>
+
 
         <record model="ir.actions.act_window" id="flota.gastocamion_action_window">
             <field name="name">Gastos</field>
@@ -53,6 +56,7 @@
             </field>
         </record>
 
+        
         <menuitem name="Flota" id="flota.menu_root"/>
 
         <menuitem name="Gastos" id="flota.menu_gastocamion" parent="flota.menu_root" action="flota.gastocamion_action_window"/>
