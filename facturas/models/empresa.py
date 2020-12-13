@@ -11,3 +11,8 @@ class Empresa(models.Model):
      rutp = fields.Char(string="Rut Propietario", required=True)
      direccionp = fields.Char(string="Direccion Propietario",required=True)
      telefonop = fields.Char(string="Telefono Propietario",required=True)
+
+
+   
+     
+     

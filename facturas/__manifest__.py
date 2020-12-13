@@ -3,19 +3,19 @@
     'name': "facturas",
 
     'summary': """
-      creacion de facturas""",
+      Creación de facturas""",
 
     'description': """
-        Sistema que permite la creacion de borradores de facturas con la finalidad de ser llevadas a servicios internos
+        Sistema que permite la creación de borradores de facturas con la finalidad de ser llevadas a servicios internos
     """,
 
     'author': "Daniel Sepúlveda Véliz",
-    'website': "https://www.instagram.com/_t.h.0.r_/",
+    'website': "https://github.com/DanielSepulvedaVeliz",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/12.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
-    'category': 'Uncategorized',
+    'category': 'Finanzas',
     'version': '0.1',
 
     # any module necessary for this one to work correctly
@@ -29,6 +29,7 @@
         'views/views_factura.xml',
         'views/views_cliente.xml',
         'views/views_empresa.xml',
+        'views/views_metodo.xml',
         'views/report.xml',
         
 

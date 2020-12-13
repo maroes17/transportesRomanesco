@@ -5,7 +5,7 @@ from odoo import models, fields, api
 class FacturaPrueba(models.Model):
      _name = 'facturas.factura'
      _description = 'Modelo de factura'
-
+     _rec_name= 'id'
      #FECHA DE FACTURACIÓN 
 
      fecha = fields.Date("Fecha de Facturacion")
@@ -16,15 +16,20 @@ class FacturaPrueba(models.Model):
      field_cliente = fields.Many2one('facturas.cliente', string="Datos del cliente")
 
      #METODO DE PAGO
-     metodo =  fields.Char(string="Metodo de Pago")
+     
+     metodo = fields.Many2one('facturas.metodo', string="Metodo de pago")
 
      #DESCRIPCION PRODUCTO O SERVICIO
 
-     descriptionproduct = fields.Char("Descripción Producto")
+     
+
+     descriptionproduct = fields.Many2one('viajes.hojaderuta', string="Producto")
 
      #PRECIO CALCULOS
 
-     precio = fields.Integer(string="Precio",)
+     precio = fields.Integer(string="Precio")
+
+    
 
      @api.multi
      def compute_iva(self):
