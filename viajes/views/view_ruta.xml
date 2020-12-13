@@ -23,7 +23,7 @@
               <group name="group_left">
                 <field name="id_viaje" />
                 <field name="chofer" />
-                <field name="cliente" />
+                <field name="id_cliente" />
                 <field name="tipo_carga" />
                 <field name="ruta" />
               </group>
@@ -46,7 +46,7 @@
       <field name="arch" type="xml">
         <tree string="Rutas">
           <field name="id_viaje" />
-          <field name="cliente" />
+          <field name="id_cliente" />
           <field name="chofer" />
           <field name="ruta" />
           <field name="fecha" />
@@ -71,8 +71,8 @@
       <field name="model">viajes.hojaderuta</field>
       <field name="arch" type="xml">
         <search string="Buscar rutas">
-          <field name="id_viaje" filter_domain="['|',('cliente', 'ilike', self), ('id_viaje', 'ilike', self)]"/>
-          <field name="cliente" />
+          <field name="id_viaje" filter_domain="['|',('id_cliente', 'ilike', self), ('id_viaje', 'ilike', self)]"/>
+          <field name="id_cliente" />
           <field name="id_viaje" />
           <separator />
           <filter string="Remolque" name="R" domain="[('tipo_carga', '=', 'R')]"/>
