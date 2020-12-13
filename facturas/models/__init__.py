@@ -3,3 +3,4 @@
 from . import factura
 from . import cliente
 from . import empresa
+from . import metodo

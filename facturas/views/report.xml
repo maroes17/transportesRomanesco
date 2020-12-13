@@ -16,10 +16,15 @@
          </div>
 
          <div class="page">   
-
-          <h1>Factura</h1>
+          <hr />
+          <h1 align="center">Factura N°<span t-field="o.id"/> </h1>
+          <hr />
            <h2>Fecha de emisión</h2>
            <p><span t-field="o.fecha"/></p>
+          <hr />
+
+
+          
 
            <!-- tabla datos empresa -->
 
@@ -34,6 +39,33 @@
              <tr>
                 <td><span t-field="o.field_empresa" /></td>
                 <td><span t-field="o.field_cliente" /></td>
+             </tr>
+
+              <tr>
+                <td><t t-foreach="request.env['facturas.empresa'].search([])" t-as="obj">
+              <t t-esc="obj.rutp"/>
+                </t></td>
+                <td><t t-foreach="request.env['facturas.cliente'].search([])" t-as="obj">
+                <t t-esc="obj.rutc"/>
+                </t></td>
+             </tr>
+
+                <tr>
+                <td><t t-foreach="request.env['facturas.empresa'].search([])" t-as="obj">
+                 <t t-esc="obj.direccionp"/>
+                </t></td>
+                <td><t t-foreach="request.env['facturas.cliente'].search([])" t-as="obj">
+                <t t-esc="obj.domicilioc"/>
+                </t></td>
+             </tr>
+
+                <tr>
+                <td><t t-foreach="request.env['facturas.empresa'].search([])" t-as="obj">
+              <t t-esc="obj.telefonop"/>
+                </t></td>
+                <td><t t-foreach="request.env['facturas.cliente'].search([])" t-as="obj">
+                <t t-esc="obj.telefonoc"/>
+                </t></td>
              </tr>
             </tbody>
            </table>
@@ -68,6 +100,9 @@
              <tr>
                 <tr>
                   <td><span t-field="o.descriptionproduct" /></td>
+                   <td><t t-foreach="request.env['viajes.hojaderuta'].search([])" t-as="obj">
+              <t t-esc="obj.descripcion"/>
+                </t></td>
                 </tr>
              </tr>
             </tbody>
@@ -85,26 +120,29 @@
 
              <tr class="border-top">
                <th scope="row">Precio:</th>
-               <th><span t-field="o.precio" /></th>
+               <th scope="row"> $<span t-field="o.precio" /></th>
              </tr>
-
+             
              <tr class="border-top">
                <th scope="row">IVA:</th>
-               <th><span t-field="o.iva" /></th>
+               <th scope="row"> $<span t-field="o.iva" /></th>
              </tr>
-
+             
              <tr class="border-top">
                <th scope="row">Total a pagar:</th>
-               <th><span t-field="o.preciototal" /></th>
+               <th scope="row"> $<span t-field="o.preciototal" /></th>
              </tr>
+             <hr />
             </tbody>
            </table>
-           <!-- OOOOOOOOOOOOO -->
+           <hr />
+           <!-- OOOOOOOOOOOOO000000 -->
           
          </div>
 
-         <div class="footer"> 
-         FOOTER
+         <div class="footer" > 
+         <hr />
+          <h6 align="center">Transportes Romanesco</h6>
          </div>
         </t>
       </t>

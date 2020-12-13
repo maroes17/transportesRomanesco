@@ -2,5 +2,6 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_facturas_factura,facturas.factura,model_facturas_factura,,1,1,1,1
 access_facturas_cliente,facturas.cliente,model_facturas_cliente,,1,1,1,1
 access_facturas_empresa,facturas.empresa,model_facturas_empresa,,1,1,1,1
+access_facturas_metodo,facturas.metodo,model_facturas_metodo,,1,1,1,1
 
 

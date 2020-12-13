@@ -1,0 +1,40 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+   
+    <record model="ir.ui.view" id="facturas_list3">
+      <field name="name">facturaPrueba list3</field>
+      <field name="model">facturas.metodo</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="namem"/>
+         
+        </tree>
+      </field>
+    </record>
+
+
+       <!-- explicit list view definition -->
+   
+    <record model="ir.ui.view" id="facturas_form3">
+      <field name="name">MetodoPrueba form</field>
+      <field name="model">facturas.metodo</field>
+      <field name="arch" type="xml">
+        <form>
+         <group> 
+          <field name="namem"/>
+          
+          </group>
+        </form>
+      </field>
+    </record>
+   
+
+    <!-- actions opening views on models -->
+    
+    
+    
+    
+    
+  </data>
+</odoo>
