@@ -54,6 +54,17 @@
       </field>
     </record>
 
+    <record id="view_viajes_hojaderuta_calendar" model="ir.ui.view">
+      <field name="model">viajes.hojaderuta</field>
+      <field name="arch" type="xml">
+        <calendar date_start="fecha">
+          <field name="id_viaje" />
+          <field name="chofer" />
+          <field name="ruta" />
+        </calendar>
+      </field>
+    </record>
+
      <!-- BARRA DE BUSQUEDA - FILTROS -->
     <record id="viajes_hojaderuta_search" model="ir.ui.view">
       <field name="name">viajes.hojaderuta.search</field>
@@ -77,7 +88,7 @@
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">viajes.hojaderuta</field>
         <field name="view_type">form</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,calendar</field>
         <field name="help" type="html">
           <p class="o_view_nocontent_smiling_face">
                 Hojas de Rutas
