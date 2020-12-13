@@ -37,6 +37,8 @@
             </field>
         </record>
 
+
+        <!-- Calendario -->
         <record id="view_calendar_gastos" model="ir.ui.view">
             <field name="model">flota.gastocamion</field>
             <field name="arch" type="xml">
@@ -63,7 +65,7 @@
 
         <!-- menu categories -->
 
-        <menuitem name="Gastosss" id="flota.menu_gasto" parent="flota.menu_root" action="flota.action_window2"/>
+        <menuitem name="Gastos" id="flota.menu_gasto" parent="flota.menu_root" action="flota.action_window2"/>
 
 
 
