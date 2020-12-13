@@ -20,10 +20,22 @@
       </field>
     </record>
 
+
+    <record id="view_calendar_gastos" model="ir.ui.view">
+            <field name="model">facturas.factura</field>
+            <field name="arch" type="xml">
+                <calendar date_start="fecha">
+                    <field name="field_cliente" />
+                    <field name="fecha" />
+                    
+                </calendar>
+            </field>
+        </record>
+
      <record model="ir.actions.act_window" id="facturas.factura_action_window">
       <field name="name">Creación de facturas</field>
       <field name="res_model">facturas.factura</field>
-      <field name="view_mode">tree,form</field>
+      <field name="view_mode">tree,form,calendar</field>
     </record>
 
     <record model="ir.actions.server" id="facturas.factura_action_server">
