@@ -1,7 +1,6 @@
-<odoo>
-    <data>
-        <!-- explicit list view definition -->
-
+<odoo >
+    <data >
+        <!-- Formulario Gasto camion -->
         <record id="flota.gastocamion_view" model="ir.ui.view">
             <field name="name">Gastos</field>
             <field name="model">flota.gastocamion</field>
@@ -37,35 +36,29 @@
             </field>
         </record>
 
-        <record id="view_calendar_gastos" model="ir.ui.view">
-            <field name="model">flota.gastocamion</field>
-            <field name="arch" type="xml">
-                <calendar date_start="fecha">
-                    <field name="camion_id" />
-                    <field name="precio" />
-                </calendar>
+
+        <record model="ir.actions.act_window" id="flota.gastocamion_action_window">
+            <field name="name">Gastos</field>
+            <field name="res_model">flota.gastocamion</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.server" id="flota.gastocamion_action_server">
+            <field name="name">gastocamion server</field>
+            <field name="model_id" ref="model_flota_gastocamion"/>
+            <field name="state">code</field>
+            <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
             </field>
         </record>
 
-
-        <!-- actions opening views on models -->
-
-        <record model="ir.actions.act_window" id="flota.action_window2">
-            <field name="name">gastos del camion</field>
-            <field name="res_model">flota.gastocamion</field>
-            <field name="view_mode">tree,form,calendar</field>
-        </record>
-
-
-        <!-- Top menu item -->
-
+        
         <menuitem name="Flota" id="flota.menu_root"/>
 
-        <!-- menu categories -->
-
-        <menuitem name="Gastosss" id="flota.menu_gasto" parent="flota.menu_root" action="flota.action_window2"/>
-
-
-
+        <menuitem name="Gastos" id="flota.menu_gastocamion" parent="flota.menu_root" action="flota.gastocamion_action_window"/>
     </data>
 </odoo>
