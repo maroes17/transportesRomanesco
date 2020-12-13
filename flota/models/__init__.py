@@ -1,3 +1,3 @@
 # -*- coding: utf-8 -*-
 
-from . import chofer, camion
+from . import chofer, camion, gastoCamion

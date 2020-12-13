@@ -1,19 +1,23 @@
 from odoo import models, fields, api
 
-class TipoGasto(models.Model):
+class tipoGasto(models.Model):
     _name = 'flota.tipo_gasto'
+    _rec_name = 'tipo'
+    tipo = fields.Char(string="Tipo") 
     
-    tipo = fields.Char(string="Tipo",required=True) 
 
-
-
-class GastoCamion(models.Model):
-    _name = 'flota.gastoCamion'
+class gastocamion(models.Model):
+    _name = 'flota.gastocamion'
+    _rec_name = 'tipo_gasto_id'
+    
+    
+    # 
+    camion_id = fields.Many2one('flota.camion', string="Patente del camion")
+    
+    tipo_gasto_id = fields.Many2one('flota.tipo_gasto',string='Tipo de Gasto')
     
     moneda = fields.Selection([('EU', 'Euro'), ('CLP', 'Peso Chileno'),
                              ('USD', 'Dolar')], string='Moneda', required=True)
-    
-    tipo_gasto = fields.Many2one('flota.tipo_gasto',string="Tipo de Gasto")
-    
-    precio = fields.Float(string='precio', required=True)
-    fecha = fields.Date(string='fecha', required=True)
+    precio = fields.Float(string='Precio', required=True)
+    fecha = fields.Date(string='Fecha', required=True)
+    comentario = fields.Text(string='Comentario')

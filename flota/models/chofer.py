@@ -2,6 +2,7 @@ from odoo import models, fields, api
 
 class TipoDocumento(models.Model):
     _name = 'flota.tipo_documento'
+    _rec_name = 'tipo'
     
     tipo = fields.Char(string="Tipo",required=True) 
     chofer_ids = fields.One2many(
@@ -18,6 +19,7 @@ class TipoDocumento(models.Model):
 
 class ciudadChofer(models.Model):
     _name = 'flota.ciudad_chofer'
+    _rec_name = 'nombre'
 
     nombre = fields.Char(string='Nombre', required=True)
     chofer_ids = fields.One2many(
@@ -34,6 +36,8 @@ class ciudadChofer(models.Model):
 
 class chofer(models.Model):
     _name = 'flota.chofer'
+    _rec_name = 'nombre'
+    _description = 'Modelo de Chofer'
 
     
     nombre = fields.Char(string='Nombre', required=True)

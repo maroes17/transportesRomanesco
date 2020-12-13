@@ -9,7 +9,7 @@
                     <sheet>
                         <group col="4">
                             <field name="marca_id"/>
-                            <field name="modelo_id"/>
+                            <field name="modelo"/>
                         </group>
                         <group>
                             <field name="patente"/>
@@ -19,6 +19,7 @@
                             <field name="autonomia"/>
                             <field name="año"/>
                             <field name="kilometraje"/>
+                            <field name="image" widget="image" />
                         </group>
                     </sheet>
                 </form>
@@ -32,7 +33,7 @@
             <field name="arch" type="xml">
                 <tree>
                     <field name="marca_id"/>
-                    <field name="modelo_id"/>
+                    <field name="modelo"/>
                     <field name="patente"/>
                     <field name="chasis"/>
                     <field name="color"/>
@@ -40,6 +41,7 @@
                     <field name="autonomia"/>
                     <field name="año"/>
                     <field name="kilometraje"/>
+                    <field name="image" widget="image" />
                 </tree>
             </field>
         </record>
@@ -81,9 +83,9 @@
                         <group>
                             <field name="camiones_ids"  nolabel="1" >
                                 <tree string="Camiones" editable="bottom">
-                                    <field name="marca_id"/>
-                                    <field name="modelo_id"/>
                                     <field name="patente"/>
+                                    <field name="marca_id"/>
+                                    <field name="modelo"/> 
                                     <field name="chasis"/>
                                     <field name="color"/>
                                     <field name="cilindrada"/>
@@ -131,76 +133,14 @@
 
         <!-- OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO -->
 
-        <!-- Formulario Modelo-->
 
-        <record id="flota.camion_view" model="ir.ui.view">
-            <field name="name">Modelos</field>
-            <field name="model">flota.modelo</field>
-            <field name="arch" type="xml">
-                <form string="Modelos">
-                    <sheet> 
-                        <Separator string="General"/>
-                        <group>
-                            <field name="modelo" />
-                        </group>
-                        <Separator string="Modelos"/>
-                        <group>
-                            <field name="camiones_ids"  nolabel="1" >
-                                <tree string="Camiones" editable="bottom">
-                                    <field name="marca_id"/>
-                                    <field name="modelo_id"/>
-                                    <field name="patente"/>
-                                    <field name="chasis"/>
-                                    <field name="color"/>
-                                    <field name="cilindrada"/>
-                                    <field name="autonomia"/>
-                                    <field name="año"/>
-                                    <field name="kilometraje"/> 
-                                </tree>
-                            </field>  
-                        </group>
-                    </sheet>
-                </form>
-            </field>
-        </record>
-
-        <!-- Listados de modelos-->
-        <record model="ir.ui.view" id="flota.modelo_list">
-            <field name="name">Modelos</field>
-            <field name="model">flota.modelo</field>
-            <field name="arch" type="xml">
-                <tree>
-                    <field name="modelo"/>
-                    <field name="total_camiones"/>
-                </tree>
-            </field>
-        </record>
-
-        <record model="ir.actions.act_window" id="flota.modelo_action_window">
-            <field name="name">Modelos</field>
-            <field name="res_model">flota.modelo</field>
-            <field name="view_mode">tree,form</field>
-        </record>
-
-        <record model="ir.actions.server" id="flota.modelo_action_server">
-            <field name="name">modelo server</field>
-            <field name="model_id" ref="model_flota_modelo"/>
-            <field name="state">code</field>
-            <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": self._name,
-        }
-            </field>
-        </record>
-
-
+    
+        
         <menuitem name="Flota" id="flota.menu_root"/>
 
         <menuitem name="Camiones" id="flota.menu_camion" parent="flota.menu_root" action="flota.camion_action_window"/>
         <menuitem name="Marcas" id="flota.menu_marca" parent="flota.menu_root" action="flota.marca_action_window"/>
-        <menuitem name="Modelos" id="flota.menu_modelo" parent="flota.menu_root" action="flota.modelo_action_window"/>
+        
 
     </data>
 </odoo>
