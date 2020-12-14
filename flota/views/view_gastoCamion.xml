@@ -42,7 +42,7 @@
         <record id="view_calendar_gastos" model="ir.ui.view">
             <field name="model">flota.gastocamion</field>
             <field name="arch" type="xml">
-                <calendar date_start="fecha">
+                <calendar date_start="fecha" color = "camion_id" mode = "month">
                     <field name="camion_id" />
                     <field name="precio" />
                 </calendar>
@@ -53,7 +53,7 @@
         <!-- actions opening views on models -->
 
         <record model="ir.actions.act_window" id="flota.action_window2">
-            <field name="name">gastos del camion</field>
+            <field name="name">Gastos</field>
             <field name="res_model">flota.gastocamion</field>
             <field name="view_mode">tree,form,calendar</field>
         </record>

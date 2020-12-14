@@ -5,6 +5,7 @@ from odoo import models, fields, api
 class marca(models.Model):
     _name = 'flota.marca'
     _rec_name = 'marca'
+    _description = 'Marcas de camiones'
     
     marca = fields.Char(string="Marca",required=True) 
     camiones_ids = fields.One2many(
@@ -23,6 +24,7 @@ class marca(models.Model):
 class camion(models.Model):
     _name = 'flota.camion'
     _rec_name = 'patente'
+    _description = 'Modelo de Camión'
 
     patente = fields.Char(string='Patente', required=True)
     marca_id = fields.Many2one('flota.marca',string='Marca')
