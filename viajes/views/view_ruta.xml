@@ -22,8 +22,8 @@
             <group name="group_top">
               <group name="group_left">
                 <field name="id_viaje" />
-                <field name="chofer" />
-                <field name="cliente" />
+                <field name="id_chofer" />
+                <field name="id_cliente" />
                 <field name="tipo_carga" />
                 <field name="ruta" />
               </group>
@@ -31,7 +31,7 @@
                 <field name="fecha" />
                 <field name="estado" />
                 <field name="descripcion" />
-                <field name="image" widget="image" />
+                <field name="id_camion" />
               </group>
             </group>
           </sheet>
@@ -46,8 +46,9 @@
       <field name="arch" type="xml">
         <tree string="Rutas">
           <field name="id_viaje" />
-          <field name="cliente" />
-          <field name="chofer" />
+          <field name="id_cliente" />
+          <field name="id_chofer" />
+          <field name="id_camion" />
           <field name="ruta" />
           <field name="fecha" />
         </tree>
@@ -59,7 +60,7 @@
       <field name="arch" type="xml">
         <calendar date_start="fecha">
           <field name="id_viaje" />
-          <field name="chofer" />
+          <field name="id_chofer" />
           <field name="ruta" />
         </calendar>
       </field>
@@ -71,8 +72,8 @@
       <field name="model">viajes.hojaderuta</field>
       <field name="arch" type="xml">
         <search string="Buscar rutas">
-          <field name="id_viaje" filter_domain="['|',('cliente', 'ilike', self), ('id_viaje', 'ilike', self)]"/>
-          <field name="cliente" />
+          <field name="id_viaje" filter_domain="['|',('id_cliente', 'ilike', self), ('id_viaje', 'ilike', self)]"/>
+          <field name="id_cliente" />
           <field name="id_viaje" />
           <separator />
           <filter string="Remolque" name="R" domain="[('tipo_carga', '=', 'R')]"/>

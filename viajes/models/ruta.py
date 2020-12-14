@@ -9,13 +9,15 @@ class HojaDeRuta(models.Model):
 
     descripcion = fields.Char(string='Descripción')
     id_viaje = fields.Char(string='N° de viaje', required=True, copy=False, readonly=True, index=True, default=lambda self: _('New'))
-    cliente = fields.Char(string='Cliente')
     chofer = fields.Many2one(sitring='Chofer', comodel_name='res.partner')
     fecha = fields.Datetime(string='Fecha')
     tipo_carga = fields.Selection([('R', 'Remolque'), ('SR', 'Semirremolque'),
                              ('S', 'Sin remolque')], string='Tipo', required=True)
     estado = fields.Boolean(string='Realizada', readonly=True)
     image = fields.Binary(string='Image')
+    id_cliente = fields.Many2one('facturas.cliente', string="Cliente")
+    id_chofer = fields.Many2one('flota.chofer', string="Chofer")
+    id_camion = fields.Many2one('flota.camion', string="Camion")
     ruta = fields.Many2one('viajes.trayecto', string='Ruta', required=True)
 
     # Función del botón estado
