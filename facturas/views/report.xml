@@ -23,9 +23,6 @@
            <p><span t-field="o.fecha"/></p>
           <hr />
 
-
-          
-
            <!-- tabla datos empresa -->
 
            <table class="table table-borderless table-sm">
@@ -41,32 +38,6 @@
                 <td><span t-field="o.field_cliente" /></td>
              </tr>
 
-              <tr>
-                <td><t t-foreach="request.env['facturas.empresa'].search([])" t-as="obj">
-              <t t-esc="obj.rutp"/>
-                </t></td>
-                <td><t t-foreach="request.env['facturas.cliente'].search([])" t-as="obj">
-                <t t-esc="obj.rutc"/>
-                </t></td>
-             </tr>
-
-                <tr>
-                <td><t t-foreach="request.env['facturas.empresa'].search([])" t-as="obj">
-                 <t t-esc="obj.direccionp"/>
-                </t></td>
-                <td><t t-foreach="request.env['facturas.cliente'].search([])" t-as="obj">
-                <t t-esc="obj.domicilioc"/>
-                </t></td>
-             </tr>
-
-                <tr>
-                <td><t t-foreach="request.env['facturas.empresa'].search([])" t-as="obj">
-              <t t-esc="obj.telefonop"/>
-                </t></td>
-                <td><t t-foreach="request.env['facturas.cliente'].search([])" t-as="obj">
-                <t t-esc="obj.telefonoc"/>
-                </t></td>
-             </tr>
             </tbody>
            </table>
 
@@ -100,9 +71,6 @@
              <tr>
                 <tr>
                   <td><span t-field="o.descriptionproduct" /></td>
-                   <td><t t-foreach="request.env['viajes.hojaderuta'].search([])" t-as="obj">
-              <t t-esc="obj.descripcion"/>
-                </t></td>
                 </tr>
              </tr>
             </tbody>
