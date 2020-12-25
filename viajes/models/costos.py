@@ -8,12 +8,12 @@ class Costos(models.Model):
 
     moneda = fields.Selection([('EU', 'Euro'), ('CLP', 'Peso Chileno'),
                              ('USD', 'Dolar')], string='Moneda', required=True)
-    chofer = fields.Many2one(sitring='Chofer', comodel_name='res.partner')
+    chofer = fields.Many2one(sitring='Chofer', related ='id_viaje.id_chofer')
     fecha = fields.Datetime('Fecha', related='id_viaje.fecha')
     notas_viajes = fields.Text(string='Notas')
     viatico = fields.Float(string='Viatico')
     reembolso = fields.Float(string='Reembolso')
-    prestamos = fields.Float(string='Préstamos')
+    prestamos = fields.Float(string='Préstamos')  
     otros = fields.Float(string='Otros gastos')
     combustible_efectivo = fields.Float(string='Combustible en efectivo')
     combustible_costo = fields.Float(string='Costo del combustible')

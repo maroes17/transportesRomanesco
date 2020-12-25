@@ -9,7 +9,6 @@ class HojaDeRuta(models.Model):
 
     descripcion = fields.Char(string='Descripción')
     id_viaje = fields.Char(string='N° de viaje', required=True, copy=False, readonly=True, index=True, default=lambda self: _('New'))
-    chofer = fields.Many2one(sitring='Chofer', comodel_name='res.partner')
     fecha = fields.Datetime(string='Fecha')
     tipo_carga = fields.Selection([('R', 'Remolque'), ('SR', 'Semirremolque'),
                              ('S', 'Sin remolque')], string='Tipo', required=True)
@@ -19,6 +18,7 @@ class HojaDeRuta(models.Model):
     id_chofer = fields.Many2one('flota.chofer', string="Chofer")
     id_camion = fields.Many2one('flota.camion', string="Camion")
     ruta = fields.Many2one('viajes.trayecto', string='Ruta', required=True)
+    conteo_gastos = fields.Integer(string='Gastos Chofer', compute='get_conteo_gastos')
 
     # Función del botón estado
     def toggle_state(self):
@@ -36,7 +36,7 @@ class HojaDeRuta(models.Model):
     @api.multi
     def open_ruta_costos(self):
         return {
-            'name': _('Gastos'),
+            'name': _('Gastos por viajes'),
             'domain': [('id_viaje', '=', self.id)],
             'view_type': 'form', 
             'res_model': 'viajes.gastos',
@@ -44,7 +44,6 @@ class HojaDeRuta(models.Model):
             'view_mode': 'tree,form',
             'type': 'ir.actions.act_window',        
         }
-
 
 
 class Direccion(models.Model):
